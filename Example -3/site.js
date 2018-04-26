@@ -25,3 +25,17 @@ var bar_chart = svg.selectAll("rect")
       return "translate("+translate+")";
     });
 
+var text = svg.selectAll("text")
+    .data(bar_graph)
+    .enter()
+    .append("text")
+    .text(function(d){
+      return d;
+    })
+    .attr("y", function(d,i){
+      return svg_height-d-2;
+    })
+    .attr("x", function(d,i){
+      return bar_width * i;
+    })
+    .attr("fill","#000")
